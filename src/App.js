@@ -1,10 +1,10 @@
 import React from 'react';
-import TabPage from './pages/tab.tsx'
+import RoutePage from './router/index'
 
 function App() {
   return (
     <div className="App">
-      <TabPage></TabPage>
+      <RoutePage></RoutePage>
     </div>
   );
 }
