@@ -14,12 +14,15 @@
     "ace-builds": "^1.4.12",
     "bootstrap": "^4.5.2",
     "formik": "^2.2.0",
+    "highcharts": "^8.2.2",
+    "highcharts-react-official": "^3.0.0",
     "react": "^16.13.1",
     "react-ace": "^9.1.4",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "reactstrap": "^8.6.0",
+    "styled-components": "^5.2.1",
     "typescript": "^4.0.3",
     "yup": "^0.29.3"
   },
@@ -29,8 +32,81 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{json,md}": [
+      "prettier --write"
+    ],
+    "src/**/*.{css,scss}": [
+      "stylelint --fix"
+    ]
+  },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "prettier": {
+    "parser": "typescript",
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "semi": true
+  },
+  "stylelint": {
+    "extends": "stylelint-config-recommended-scss",
+    "rules": {
+      "indentation": 2,
+      "block-opening-brace-space-after": "always-single-line",
+      "block-opening-brace-space-before": "always-multi-line",
+      "declaration-bang-space-after": "never",
+      "declaration-bang-space-before": "always",
+      "declaration-colon-space-after": "always",
+      "declaration-colon-space-before": "never",
+      "declaration-block-semicolon-space-after": "always-single-line",
+      "declaration-block-semicolon-space-before": "never",
+      "declaration-block-semicolon-newline-after": "always-multi-line",
+      "declaration-block-trailing-semicolon": "always",
+      "media-feature-colon-space-after": "always",
+      "media-feature-colon-space-before": "never",
+      "media-feature-parentheses-space-inside": "never",
+      "media-query-list-comma-space-after": "always",
+      "media-query-list-comma-space-before": "never",
+      "selector-combinator-space-after": "always",
+      "selector-combinator-space-before": "always",
+      "selector-no-vendor-prefix": true,
+      "function-comma-space-after": "always",
+      "function-comma-space-before": "never",
+      "max-empty-lines": 2,
+      "rule-empty-line-before": [
+        "always-multi-line",
+        {
+          "except": [
+            "after-single-line-comment"
+          ]
+        }
+      ],
+      "number-leading-zero": "never",
+      "number-no-trailing-zeros": true,
+      "property-no-vendor-prefix": true,
+      "value-no-vendor-prefix": true,
+      "color-named": "never",
+      "color-hex-case": "lower",
+      "color-hex-length": "short",
+      "string-quotes": "double",
+      "shorthand-property-no-redundant-values": true,
+      "no-missing-end-of-source-newline": true,
+      "no-descending-specificity": null,
+      "no-empty-source": null,
+      "comment-no-empty": true,
+      "comment-whitespace-inside": "always",
+      "block-no-empty": null
+    }
   },
   "browserslist": {
     "production": [
